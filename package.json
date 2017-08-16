@@ -1,0 +1,23 @@
+{
+  "name": "demo-game",
+  "version": "1.0.0",
+  "description": "demo game",
+  "main": "dist/index.js",
+  "scripts": {},
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "phaser": "^2.6.2",
+    "phaser-ce": "^2.8.3"
+  },
+  "devDependencies": {
+    "clean-webpack-plugin": "^0.1.16",
+    "copy-webpack-plugin": "^4.0.1",
+    "expose-loader": "^0.7.3",
+    "html-webpack-plugin": "^2.30.1",
+    "ts-loader": "^2.0.3",
+    "typescript": "^2.3.2",
+    "webpack": "^2.5.1",
+    "webpack-dev-server": "^2.4.5"
+  }
+}

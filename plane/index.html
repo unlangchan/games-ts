@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Plane</title>
+</head>
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  canvas {
+    margin: 0 auto;
+  }
+
+  .game {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .logo {
+    position: absolute;
+    left: -1000px;
+    top: -1000px;
+  }
+
+  .share {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 2;
+  }
+
+  .share img {
+    position: absolute;
+  }
+
+  .share .sharepng {
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+  }
+</style>
+
+<body>
+  <div class="logo">
+    <img src="http://game.webxinxin.com/plane/assets/logo.jpg" alt="" />
+  </div>
+  <div id="share" class="share">
+    <img class="sharepng" src="http://game.webxinxin.com/plane/assets/share.png" alt="" />
+    <img class="closebtn" src="http://game.webxinxin.com/plane/assets/close.png" alt="" />
+  </div>
+  <div id="game" class="game"></div>
+</body>
