@@ -87,7 +87,7 @@ export default class Play extends Phaser.State {
 
         // 奖牌组
         this.awards = game.add.group();
-        game.time.events.loop(Phaser.Timer.SECOND * 3, this.generateAward, this);
+        game.time.events.loop(Phaser.Timer.SECOND * 30, this.generateAward, this);
 
         this.enemys = this.game.add.group();
         this.enemys.enableBody = true;

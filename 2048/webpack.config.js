@@ -6,9 +6,9 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 var phaserModule = path.join(__dirname, '../', '/node_modules/phaser-ce/');
 
-var phaser = path.join(phaserModule, 'build/custom/phaser-split.js');
-var pixi = path.join(phaserModule, 'build/custom/pixi.js');
-var p2 = path.join(phaserModule, 'build/custom/p2.js');
+var phaser = path.join(phaserModule, 'build/custom/phaser-split.js')
+var pixi = path.join(phaserModule, 'build/custom/pixi.js')
+var p2 = path.join(phaserModule, 'build/custom/p2.js')
 
 module.exports = {
     devServer: {
@@ -22,21 +22,37 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'build'),
-        filename: 'js/bundle.[hash].js'
+        filename: 'bundle.js'
     },
-
     plugins: [
         new CleanWebpackPlugin(['build']),
-        new CopyWebpackPlugin([{ from: path.join(__dirname, 'assets'), to: path.join(__dirname, 'build/assets'), }]),
-        new webpack.optimize.CommonsChunkPlugin(
-            { name: 'vendor'/* chunkName= */, filename: 'js/vendor.bundle.[hash].js'/* filename= */ }
-        ),
+        new CopyWebpackPlugin([{ from: path.join(__dirname, 'assets'), to: path.join(__dirname, 'build/assets') }]),
+        new webpack.optimize.CommonsChunkPlugin({ name: 'vendor'/* chunkName= */, filename: 'vendor.bundle.js'/* filename= */ }),
         new HtmlWebpackPlugin({
-            template: 'index.html'
-        }),
-        // new webpack.optimize.UglifyJsPlugin() /* 压缩插件用于减少脚本体积  */
+            template: 'index.html',
+            files: {
+                "js": ["js/main.js", "js/vendor.js"],
+                "chunks": {
+                    "head": {
+                        "entry": "js/vendor.js",
+                    },
+                    "main": {
+                        "entry": "js/main.js",
+                    },
+                }
+            }
+        })   // files: {
+        //     "js": ["js/main.js", "js/vendor.js"],
+        //     "chunks": {
+        //         "head": {
+        //             "entry": "js/vendor.js",
+        //         },
+        //         "main": {
+        //             "entry": "js/main.js",
+        //         },
+        //     }
+        // }
     ],
-    devtool: '#inline-source-map',
     module: {
         loaders: [
             { test: /\.ts$/, loader: 'ts-loader' },
